@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Absolute{
+public class ADifferentProblem{
     
     public static void main(String[] args) {
         
