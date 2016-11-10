@@ -1,6 +1,6 @@
 import java.util.Scanner; 
 
-public class GraphRep {
+public class GraphRepresentation {
 
     public static void main(String[] args) {
         
