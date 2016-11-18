@@ -1,14 +1,14 @@
 Public class Person()
 {
-	public Person(String name, int count)
+	public Person(String name, int votes)
 	{
 		this.name = name;
-		this.count = count;
+		this.votes = votes;
 	}
 	
 	public int getVotes(Person person)
 	{
-		return person.count;
+		return person.votes;
 	}
 	
 	public String getName(Person person)
@@ -18,6 +18,6 @@ Public class Person()
 	
 	public String getInfo(Person person)
 	{
-		return Person.name + " has " + Person.count + " votes.";
+		return Person.name + " has " + Person.votes + " votes.";
 	}
 }
