@@ -1,48 +1,67 @@
-/*PSEUDOCODE
-
-	Constructor for Person object with parameters:
-													name, votes
-													
-	ArrayList of arbitruary size
-	
-	Loop through input and store values in ArrayList
-	
-	Method to go through ArrayList and retrieve name with most votes or if there is a tie
-	
-END*/
-
-//TODO Merge two classes together
-//main
 import java.util.*;
 
-public class Recount{
-	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		ArrayList<String> people = new ArrayList<String>();
+public class Recount {
+	public static void main(String[] args) {
 		
-		while(scanner.hasNext()){
-		 people.add(scanner.nextLine());
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<Person> people = new ArrayList<Person>();
+		
+		while(!scanner.hasNext("...")){
+			Person nextPerson = new Person(scanner.nextLine());
+			if(!checkList(nextPerson, people))
+			{
+				getPerson(people, nextPerson).incVotes();
+			}
+			people.add(nextPerson);
 		}
-	    
+		
+		String winner = calculateWinner(people);
+		System.out.println(winner);
+	}
+
+public static boolean checkList(Person person, ArrayList<Person> list){
+	
+	if(list.size() == 0 || list.size() == 1){
+		return true;
 	}
 	
+	for(int i = 0; i < list.size(); i++){
+	   if(person.getName().equals(list.get(i).getName())){
+		   return false;
+	   }
+   	}
+   	return true;
+  }
+
+public static Person getPerson(ArrayList<Person> list, Person person){
+	for(int i = 0; i < list.size(); i++){
+		if(person.getName().equals(list.get(i).getName())){
+			return list.get(i);
+		}
+	}
+	return person; //Unreachable line but necessary for return type.
 }
 
-public boolean checkList(ArrayList<String> list)
-{
-    for(int i = 0; i < list.length; i++)
-    {
-        String temp = list.indexOf(i);
-        for(int j = 1; j < list.length; j++)
-        {
-            String tempTwo = list.indexOf(j);
-            if(temp.equals(tempTwo))
-            {
-                return false;
-                break;
-            }
-        }
-    }
-    
-    return true;
+public static String calculateWinner(ArrayList<Person> list){
+	Person temp = list.get(0);
+	for(int i = 1; i < list.size(); i++){
+		if(list.get(i).getVotes() > temp.getVotes()){
+			temp = list.get(i);
+		}
+	}
+	
+	int current = list.indexOf(temp);
+	for(int i = 0; i < list.size(); i++){
+		if( i != current){
+			if(list.get(i).getVotes() == temp.getVotes()){
+				return "Runoff!";
+			}
+		}
+	}
+	return temp.getName();
 }
+}
+
+
+
+
