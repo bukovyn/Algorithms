@@ -15,6 +15,8 @@ public class Recount {
 			people.add(nextPerson);
 		}
 		
+		scanner.close();
+		
 		String winner = calculateWinner(people);
 		System.out.println(winner);
 	}
@@ -61,6 +63,8 @@ public static String calculateWinner(ArrayList<Person> list){
 	return temp.getName();
 }
 }
+
+
 
 
 
