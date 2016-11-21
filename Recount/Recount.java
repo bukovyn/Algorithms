@@ -22,7 +22,6 @@ public class Recount {
 	}
 
 public static boolean checkList(Person person, ArrayList<Person> list){
-	
 	if(list.size() == 0 || list.size() == 1){
 		return true;
 	}
