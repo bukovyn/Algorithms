@@ -8,12 +8,12 @@ public class Person {
 		this.votes = 1;
 	}
 	
-	public int getVotes(){
-		return this.votes;
-	}
-	
 	public String getName(){
 		return this.name;
+	}
+	
+	public int getVotes(){
+		return this.votes;
 	}
 	
 	public void incVotes(){
