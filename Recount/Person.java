@@ -1,23 +1,22 @@
-Public class Person()
-{
-	public Person(String name, int votes)
-	{
+public class Person {
+
+	String name;
+	int votes;
+	
+	public Person(String name){
 		this.name = name;
-		this.votes = votes;
+		this.votes = 1;
 	}
 	
-	public int getVotes(Person person)
-	{
-		return person.votes;
+	public int getVotes(){
+		return this.votes;
 	}
 	
-	public String getName(Person person)
-	{
-		return Person.name;
+	public String getName(){
+		return this.name;
 	}
 	
-	public String getInfo(Person person)
-	{
-		return Person.name + " has " + Person.votes + " votes.";
-	}
+	public void incVotes(){
+		this.votes += 1;
+	}			
 }
