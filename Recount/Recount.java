@@ -60,7 +60,7 @@ public static String calculateWinner(ArrayList<Person> list){
 		}
 	}
 	return temp.getName();
-}
+    }
 }
 
 
