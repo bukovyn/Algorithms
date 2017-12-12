@@ -37,8 +37,7 @@ public class DepthFirst{
     public static Queue<String> queue = new LinkedList<String>();
     public static int counter;
     
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         counter = sc.nextInt();
         
@@ -54,20 +53,20 @@ public class DepthFirst{
                 g.addEdge(v1, v2);
             }
         }
-        for (String node : g.getVertices())
-        {   if (!visited.contains(node))
-            {   System.out.println(node);
+        for (String node : g.getVertices()){ 
+		if (!visited.contains(node)){ 
+			System.out.println(node);
                 DepthFirstSearch(node);}
         }
     }
-    public static void DepthFirstSearch(String node)
-    {   Stack<String> graphStack = new Stack<String>();
+    public static void DepthFirstSearch(String node){ 
+	    Stack<String> graphStack = new Stack<String>();
         graphStack.push(node);
         visited.add(node);
-        while (!graphStack.isEmpty())
-            {   for (String branch : g.getNeighbours(graphStack.peek()))
-                {   if (!visited.contains(branch))
-                    {   System.out.println(branch);
+        while (!graphStack.isEmpty()){ 
+		for (String branch : g.getNeighbours(graphStack.peek())){
+			if (!visited.contains(branch)){
+				System.out.println(branch);
                         DepthFirstSearch(branch);}
                 }
             graphStack.pop();
